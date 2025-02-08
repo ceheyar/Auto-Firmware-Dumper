@@ -79,6 +79,7 @@ jobs:
         bash setup.sh
         pip3 install aospdtgen
         pip3 install twrpdtgen
+        pip3 install pycryptodome
 
     - name: Creating Dump
       run: |
