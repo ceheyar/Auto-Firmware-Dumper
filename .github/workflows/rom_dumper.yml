@@ -57,7 +57,7 @@ jobs:
       run: |
         sudo apt update \
         && sudo apt -y upgrade \
-        && sudo apt -y install cpio aria2 git python3 neofetch tar gzip
+        && sudo apt -y install cpio aria2 git neofetch tar gzip
 
     - name: Setup GithubCLI
       run: |
@@ -67,6 +67,11 @@ jobs:
         && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
         && sudo apt update \
         && sudo apt install gh -y
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.8'
 
     - name: Clone and Setup DumprX
       run: |
@@ -79,7 +84,7 @@ jobs:
         bash setup.sh
         pip3 install aospdtgen
         pip3 install twrpdtgen
-        pip3 install crypto
+        pip3 install pycryptodome
 
     - name: Creating Dump
       run: |
