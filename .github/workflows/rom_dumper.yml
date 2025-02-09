@@ -35,7 +35,7 @@ jobs:
   dump:
     name: Auto Firmware Dumper
     if: github.event.repository.owner.id == github.event.sender.id
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       GITHUB_TOKEN: ${{ secrets.GTOKEN }}
       TWT: ${{ github.event.inputs.UPLOAD_TWRP_DT }}
