@@ -71,7 +71,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.6'
+        python-version: '3.8.18'
 
     - name: Clone and Setup DumprX
       run: |
@@ -82,9 +82,9 @@ jobs:
         cd DumprX
         sudo chmod 777 *.sh
         bash setup.sh
+        pip3 install pycryptodome
         pip3 install aospdtgen
         pip3 install twrpdtgen
-        pip3 install pycryptodome
 
     - name: Creating Dump
       run: |
